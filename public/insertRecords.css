@@ -1,0 +1,58 @@
+#inputNew {
+    border: none;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+fieldset {
+    border: solid 1px #080808;
+    background-color: white !important;
+}
+
+body {
+    background-image: url(images/websiteWallpaper.jpg);
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+p {
+    color: black;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+#button {
+    background-color: #279BFF;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#labelNew {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+button {
+    background-color: #279BFF;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
