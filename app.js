@@ -84,6 +84,23 @@ app.post("/projectsignup", (req, res) => {
 }); 
 
 
+//Post request for the IMEI page
+app.post("/insertRecords", (req, res) => {
+  const imei = new Imei(req.body);
+  console.log(req.body);
+ 
+  imei
+    .save( )
+    .then( result => {
+      res.redirect("/insertRecords");
+    })
+    .catch( err => {
+      console.log(err);
+    });
+}); 
+
+
+//User login function
 app.post("/projectsignin", async function(req, res){
   try {
       // check if the user exists

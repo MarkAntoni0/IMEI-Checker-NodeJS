@@ -13,9 +13,9 @@
 	<div align="center">
 		<fieldset style="width:40%">
 			<br>
-			<form method="post" action="/InsertRecord">
+			<form method="post" action="/insertRecords">
 				<label id="labelNew">IMEI:</label><br>
-				<input type="text" name="imei" id="inputNew">
+				<input type="text" name="imei" id="inputNew" required>
 				<br>
 				<input id="button" type="submit" value="Add record">
 				
@@ -28,7 +28,7 @@
 	</div>
 	<script>
 		function redirectToHome() {
-			location.replace( "http://localhost:3000/IMEI" )
+			location.replace( "http://localhost:3000/project" )
 		}
 	</script>
 
