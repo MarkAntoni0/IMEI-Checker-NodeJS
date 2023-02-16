@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>IMEI Checker</title>
+    <link rel="stylesheet" href="IMEIstyle.css">
+</head>
+
+<body>
+	<div class="topnav">
+		<a class="active" href="./project">IMEI CHECK</a>
+		<a href="./projectsignin">SIGN IN</a>
+		<a href="./projectsignup">SIGN UP</a>
+		<a href="./about">ABOUT</a>
+	</div>
+	</br></br></br></br></br></br>
+
+
+
+	<form name="myForm" method="post" onsubmit="return validateForm()" action="">
+		<img src="images/icon.png" alt="" width="151" height="121" id="logo" align="center"/>
+		</br>
+		<div align="center">
+			<fieldset style="width:40%" >
+				<br>
+				<label id="labelNew">IMEI:</label><br>
+				<input type="text" name="imei" id="inputNew">
+				<br><br>
+				<input type="submit" value="Check!" id="button">
+				<br><br>
+			</fieldset>
+			
+		</div>
+	</form>
+
+	<br>
+
+	<script>
+		function showHelp(){
+			var paragraph=document.createElement("p");
+			var node=document.createTextNode("This website helps you to figure out whether the IMEI on the phone is stolen or not - Insert the IMEI on the back of the device box to search the Database");
+			paragraph.appendChild(node);
+			document.getElementById("Middle").appendChild(paragraph);
+		}
+		function validateForm() {
+		let x = document.forms["myForm"]["imei"].value;
+			if (x == "") {
+				alert("IMEI must be filled out");
+				return false;
+			}
+		}
+	</script>
+
+	<footer>
+		<p>Author: Mark Tharwat</p>
+		<p><a href="https://www.linkedin.com/in/mark-antonio-b2777310a/">Contact on LinkedIn</a>
+		</p>
+	</footer>
+</body>
+
+</html>

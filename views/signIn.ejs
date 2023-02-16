@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="signin.css">
+
+	<title>Lost or stolen sign in</title>
+</head>
+
+<body>
+	<div align="center" class="topnav">
+		<div class="topnav">
+			<a href="./project">IMEI CHECK</a>
+			<a class="active" href="./projectsignin">SIGN IN</a>
+			<a href="./projectsignup">SIGN UP</a>
+			<a href="./about">ABOUT</a>
+		</div>
+	</div>
+	<br><br>
+
+
+	<form method="post" name="myForm" action="projectsigninhandler.php" onsubmit="return validateForm()" id="signInForm">
+		<div align="center">
+			<fieldset style="width:40%">
+				<label id="labelNew">Email:</label><br>
+				<input type="email" name="email" id="inputNew">
+				<br><br>
+
+				<label id="labelNew">Password:</label><br>
+				<input type="password" name="password" id="inputNew">
+				<br><br>
+
+				<input type="submit" value="Login" id="button">
+			</fieldset>
+		</div>
+	</form>
+
+	<script>
+	function validateForm() {
+		let x = document.forms["myForm"]["email"].value;
+			if (x == "") {
+				alert("Email must be filled out");
+				return false;
+			}
+		let y = document.forms["myForm"]["password"].value;
+			if (y == "") {
+					alert("Password must be filled out");
+					return false;
+			}
+		}
+	</script>
+
+	<footer>
+		<p>Author: Mark Tharwat - 19200164</p>
+		<p><a href="https://www.linkedin.com/in/mark-antonio-b2777310a/">Contact on LinkedIn</a>
+		</p>
+	</footer>
+</body>
+
+</html>

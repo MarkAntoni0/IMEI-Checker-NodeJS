@@ -1,0 +1,21 @@
+{
+  "name": "wallwebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "Mark",
+  "license": "ISC",
+  "dependencies": {
+    "connect-livereload": "^0.6.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "livereload": "^0.9.3",
+    "mongoose": "^6.9.1",
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "watch": "nodemon --ext js,ejs --ignore public"
+  }
+}

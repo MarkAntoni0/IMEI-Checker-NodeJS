@@ -1,0 +1,39 @@
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert Record</title>
+    <link rel="stylesheet" href="insertRecords.css">
+
+</head>
+
+
+<body>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div align="center">
+		<fieldset style="width:40%">
+			<br>
+			<form method="post" action="">
+				<label id="labelNew">IMEI:</label><br>
+				<input type="text" name="imei" id="inputNew">
+				<br>
+				<input id="button" type="submit" value="Add record">
+				
+				<br>
+			</form>
+			<br>
+			<button onclick="redirectToHome()">Home</button>
+			<br><br>
+		</fieldset>
+	</div>
+	<script>
+		function redirectToHome() {
+			location.replace( "http://localhost:3000/IMEI" )
+		}
+	</script>
+
+	
+
+</body>
+
+</html>
