@@ -23,10 +23,10 @@ liveReloadServer.server.once("connection", () => {
 });
 
 
-//MongoDB connection
+//MongoDB - Connect
 const mongoose = require('mongoose');
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb+srv://maroka:s6CdkBexUfQ0INhZ@cluster0.lapskzk.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://maroka:s6CdkBexUfQ0INhZ@cluster0.lapskzk.mongodb.net/IMEI-Checker-DB?retryWrites=true&w=majority")
   .then(result => {
     app.listen(port, () => {
       console.log("Listening on port: " + port)
@@ -35,6 +35,36 @@ mongoose.connect("mongodb+srv://maroka:s6CdkBexUfQ0INhZ@cluster0.lapskzk.mongodb
   .catch( err => {
     console.log(err);
   });
+
+
+
+//MongoDB - Send data
+app.use(express.urlencoded({ extended: true }));
+
+          //Defining models to be used for objects creation
+const User = require("./models/usersScheme");
+const Imei = require("./models/imeiScheme");
+
+          //Post request for the sign up page
+app.post("/projectsignup", (req, res) => {
+  const user = new User(req.body);
+ 
+  console.log(req.body);
+ 
+  user
+    .save( )
+    .then( result => {
+      res.redirect("/projectsignin");
+    })
+    .catch( err => {
+      console.log(err);
+    });
+}); 
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
