@@ -57,7 +57,7 @@ liveReloadServer.server.once("connection", () => {
 //MongoDB - Connect
 const mongoose = require('mongoose');
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb+srv://maroka:s6CdkBexUfQ0INhZ@cluster0.lapskzk.mongodb.net/IMEI-Checker-DB?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://<User>:<Password>@cluster0.lapskzk.mongodb.net/IMEI-Checker-DB?retryWrites=true&w=majority")
   .then(result => {
     app.listen(port, () => {
       console.log("Listening on port: " + port)
