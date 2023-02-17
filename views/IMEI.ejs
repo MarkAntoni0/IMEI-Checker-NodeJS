@@ -36,6 +36,7 @@
 	<br>
 
 	<script>
+
 		function showHelp() {
 			var paragraph = document.createElement("p");
 			var node = document.createTextNode("This website helps you to figure out whether the IMEI on the phone is stolen or not - Insert the IMEI on the back of the device box to search the Database");
@@ -49,20 +50,11 @@
 				return false;
 			}
 		}
-		function safeDevice() {
-			var img = document.createElement('img');
-			img.src = "images/Safe.png";
-			document.body.appendChild(img);
-		}
 		
-		function stolenDevice() {
-			var img = document.createElement('img');
-			img.src = "images/NotSafe.png.png";
-			document.body.appendChild(img);
-		}
 
+		
 	</script>
-
+	<script type="module" src="app.js"></script>
 
 
 

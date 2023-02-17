@@ -1,6 +1,11 @@
+
 const express = require('express')
 const app = express()
 const port = 3000
+
+
+
+var state = 0; //0 Not defined 1// Stolen 2// Safe
 
 //Defining models to be used for objects creation
 const User = require("./models/usersScheme");
@@ -8,9 +13,9 @@ const Imei = require("./models/imeiScheme");
 
 //Passport configuration for login
 passport = require("passport"),
-bodyParser = require("body-parser"),
-LocalStrategy = require("passport-local"),
-passportLocalMongoose = require("passport-local-mongoose")
+  bodyParser = require("body-parser"),
+  LocalStrategy = require("passport-local"),
+  passportLocalMongoose = require("passport-local-mongoose")
 
 app.use(require("express-session")({
   secret: "Rusty is a dog",
@@ -58,7 +63,7 @@ mongoose.connect("mongodb+srv://maroka:s6CdkBexUfQ0INhZ@cluster0.lapskzk.mongodb
       console.log("Listening on port: " + port)
     });
   })
-  .catch( err => {
+  .catch(err => {
     console.log(err);
   });
 
@@ -72,54 +77,71 @@ app.use(express.urlencoded({ extended: true }));
 app.post("/projectsignup", (req, res) => {
   const user = new User(req.body);
   console.log(req.body);
- 
+
   user
-    .save( )
-    .then( result => {
+    .save()
+    .then(result => {
       res.redirect("/projectsignin");
     })
-    .catch( err => {
+    .catch(err => {
       console.log(err);
     });
-}); 
+});
 
 
 //Post request for the IMEI page
 app.post("/insertRecords", (req, res) => {
   const imei = new Imei(req.body);
   console.log(req.body);
- 
+
   imei
-    .save( )
-    .then( result => {
+    .save()
+    .then(result => {
       res.redirect("/insertRecords");
     })
-    .catch( err => {
+    .catch(err => {
       console.log(err);
     });
-}); 
+});
 
 
 //User login function
-app.post("/projectsignin", async function(req, res){
+app.post("/projectsignin", async function (req, res) {
   try {
-      // check if the user exists
-      const user = await User.findOne({ email: req.body.email });
-      if (user) {
-        //check if password matches
-        const result = req.body.password === user.password;
-        if (result) {
-          res.render("insertRecords");
-        } else {
-          res.status(400).json({ error: "password doesn't match" });
-        }
+    // check if the user exists
+    const user = await User.findOne({ email: req.body.email });
+    if (user) {
+      //check if password matches
+      const result = req.body.password === user.password;
+      if (result) {
+        res.render("insertRecords");
       } else {
-        res.status(400).json({ error: "User doesn't exist" });
+        res.status(400).json({ error: "password doesn't match" });
       }
-    } catch (error) {
-      res.status(400).json({ error });
+    } else {
+      res.status(400).json({ error: "User doesn't exist" });
     }
+  } catch (error) {
+    res.status(400).json({ error });
+  }
 });
+
+
+//IMEI search function
+app.post("/project", async function (req, res) {
+  try {
+    const imei = await Imei.findOne({ imei: req.body.imei }).exec();
+    if (imei) {
+      res.render('StolenDevice.ejs')
+    } else {
+      res.render('SafeDevice.ejs')
+    }
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+});
+
+
 
 
 
@@ -157,6 +179,14 @@ app.get('/about', function (req, res) {
 
 app.get("/insertRecords", function (req, res) {
   res.render("insertRecords");
+});
+
+app.get("/SafeDevice", function (req, res) {
+  res.render("SafeDevice.ejs");
+});
+
+app.get("/insertRecords", function (req, res) {
+  res.render("StolenDevice.ejs");
 });
 
 
